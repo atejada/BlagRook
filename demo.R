@@ -15,7 +15,7 @@ newapp<-function(env){
   x<-readBin(to.read, raw(),n=231488)
   test<-paste(x, collapse = "")
 
-  res$write(nchar(test))
+  res$write(test)
  
   res$finish()
 }
