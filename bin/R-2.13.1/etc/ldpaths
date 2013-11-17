@@ -1,0 +1,16 @@
+: ${JAVA_HOME=/usr/lib/jvm/java-6-openjdk/jre}
+: ${R_JAVA_LD_LIBRARY_PATH=${JAVA_HOME}/lib/amd64/server:${JAVA_HOME}/lib/amd64:/app/vendor/cairo:/app/vendor/fontconfig:/app/vendor/pixman:/app/vendor/libpng:/app/vendor/DirectFB:/app/vendor/freetype}
+if test -n "/app/vendor/gcc-4.3/lib64"; then
+: ${R_LD_LIBRARY_PATH=${R_HOME}/lib:/app/vendor/gcc-4.3/lib64}
+else
+: ${R_LD_LIBRARY_PATH=${R_HOME}/lib}
+fi
+if test -n "${R_JAVA_LD_LIBRARY_PATH}"; then
+  R_LD_LIBRARY_PATH="${R_LD_LIBRARY_PATH}:${R_JAVA_LD_LIBRARY_PATH}"
+fi
+if test -z "${LD_LIBRARY_PATH}"; then
+  LD_LIBRARY_PATH="${R_LD_LIBRARY_PATH}"
+else
+  LD_LIBRARY_PATH="${R_LD_LIBRARY_PATH}:${LD_LIBRARY_PATH}"
+fi
+export LD_LIBRARY_PATH

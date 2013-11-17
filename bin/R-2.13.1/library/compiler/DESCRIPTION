@@ -1,0 +1,9 @@
+Package: compiler
+Version: 2.13.1
+Priority: base
+Title: The R Compiler Package
+Author: Luke Tierney <luke-tierney@uiowa.edu>
+Maintainer: R Core Team <R-core@r-project.org>
+Description: Byte code compiler for R
+License: Part of R 2.13.1
+Built: R 2.13.1; ; 2013-11-16 05:11:54 UTC; unix

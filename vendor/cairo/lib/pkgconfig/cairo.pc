@@ -1,0 +1,13 @@
+prefix=/app/vendor/cairo
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: cairo
+Description: Multi-platform 2D graphics library
+Version: 1.9.14
+
+Requires.private:        pixman-1 >= 0.17.5    fontconfig >= 2.2.95 freetype2 >= 9.7.3  libpng12 x11 
+Libs: -L${libdir} -lcairo
+Libs.private:     -lz     -lz -lz     
+Cflags: -I${includedir}/cairo
