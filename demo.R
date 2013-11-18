@@ -7,7 +7,8 @@ newapp<-function(env){
  carrid_param<-c(req$params()$carrid)
  seats_param<-c(req$params()$seats)
  seats_param<-strplit(seats_param,",")
- seats_param<-c(as.numeric(seats_param[[1]][1],seats_param[[1]][2],seats_param[[1]][3])
+ seats_param<-c(as.numeric(seats_param[[1]][1]),as.numeric(seats_param[[1]][2]),
+                as.numeric(seats_param[[1]][3]))
 
  res$write(seats_param)
  res$write(str(seats_param))
