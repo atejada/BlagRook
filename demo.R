@@ -17,7 +17,7 @@ newapp<-function(env){
  params<-data.frame(carrid_param,seats_param)
 
  bmp("R_Plot.bmp",type=c("cairo"))
- dotchart(params$carrid_param,labels=params$seats_param)
+ dotchart(params$seats_param,labels=params$carrid_param)
  dev.off()
   
  to.read = file("R_Plot.bmp", "rb")
