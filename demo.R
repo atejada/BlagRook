@@ -6,9 +6,10 @@ newapp<-function(env){
  
  carrid_param<-c(req$params()$carrid)
  seats_param<-c(req$params()$seats)
- seats_param<-as.numeric(seats_param)
+ seats_param<-strplit(seats_param,",")
+ seats_param<-c(as.numeric(seats_param[[1]][1],seats_param[[1]][2],seats_param[[1]][3])
 
- res$write(carrid_param)	
+ res$write(seats_param)
  res$write(str(seats_param))
 
 #  bmp("R_Plot.bmp",type=c("cairo"))
