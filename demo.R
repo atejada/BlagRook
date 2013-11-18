@@ -7,15 +7,19 @@ newapp<-function(env){
   name_param = req$params()$name
  
   bmp("R_Plot.bmp",type=c("cairo"))
-  test<-data.frame(c(1,2,3),c(4,5,6))
-  plot(test)
+  graph<-data.frame(c(1,2,3),c(4,5,6))
+  plot(graph)
   dev.off()
   
   to.read = file("R_Plot.bmp", "rb")
   x<-readBin(to.read, raw(),n=231488)
-  test<-paste(x, collapse = "")
+  hex<-paste(x, collapse = "")
 
-  res$write(test)
+  res$write("<root>") 
+  res$write("<bmp>") 
+  res$write(hex)
+  res$write("</bmp>") 
+  res$write("</root>")
  
   res$finish()
 }
