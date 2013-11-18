@@ -15,11 +15,7 @@ newapp<-function(env){
   x<-readBin(to.read, raw(),n=231488)
   hex<-paste(x, collapse = "")
 
-  res$write("<root>")
-  res$write("<bmp>")
   res$write(hex)
-  res$write("</bmp>")
-  res$write("</root>")
  
   res$finish()
 }
