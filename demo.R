@@ -7,23 +7,20 @@ newapp<-function(env){
  carrid_param<-c(req$params()$carrid)
  seats_param<-c(req$params()$seats)
  seats_param<-strsplit(seats_param,",")
- res$write(seats_param) 
  seats_param<-c(as.numeric(seats_param[[1]][1]),as.numeric(seats_param[[1]][2]),
                 as.numeric(seats_param[[1]][3]))
 
- res$write(seats_param)
-
-#  bmp("R_Plot.bmp",type=c("cairo"))
-#  barplot(seats_param,names.arg=carrid_param)
+ bmp("R_Plot.bmp",type=c("cairo"))
+ barplot(seats_param,names.arg=carrid_param)
 #  graph<-data.frame(c(1,2,3),c(4,5,6))
-#  plot(graph)
-#  dev.off()
+ plot(graph)
+ dev.off()
   
-#  to.read = file("R_Plot.bmp", "rb")
-#  x<-readBin(to.read, raw(),n=231488)
-#  hex<-paste(x, collapse = "")
+ to.read = file("R_Plot.bmp", "rb")
+ x<-readBin(to.read, raw(),n=231488)
+ hex<-paste(x, collapse = "")
 
-#  res$write(hex)
+  res$write(hex)
  
   res$finish()
 }
