@@ -5,7 +5,8 @@ newapp<-function(env){
   res<-Rook::Response$new()
  
   carrid_param<-c(req$params()$carrid)
-  seats_param<-c(as.numeric(req$params()$seats))
+  seats_param<-c(req$params()$seats)
+  seats_param<-as.numeric(seats_param)	
 
   res$write(carrid_param)
   res$write(seats_param)	  
