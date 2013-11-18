@@ -7,6 +7,9 @@ newapp<-function(env){
   carrid_param<-c(req$params()$carrid)
   seats_param<-c(as.numeric(req$params()$seats))
 
+  res$write(carrid_param)
+  res$write(seats_param)	  
+
   bmp("R_Plot.bmp",type=c("cairo"))
   barplot(seats_param,names.arg=carrid_param)
 #  graph<-data.frame(c(1,2,3),c(4,5,6))
