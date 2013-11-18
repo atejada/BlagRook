@@ -8,7 +8,8 @@ newapp<-function(env){
  seats_param<-c(req$params()$seats)
  seats_param<-as.numeric(seats_param)
 
- res$write(str(seats_param))	
+ res$write(carrid_param)	
+ res$write(str(seats_param))
 
 #  bmp("R_Plot.bmp",type=c("cairo"))
 #  barplot(seats_param,names.arg=carrid_param)
