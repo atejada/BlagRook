@@ -6,14 +6,18 @@ newapp<-function(env){
  
  carrid_param<-c(req$params()$carrid)
  seats_param<-c(req$params()$seats)
+ 
+ carrid_param<-strsplit(carrid_param,",")
+ carrid_param<-c(carrid_param[[1]][1],carrid_param[[1]][2],
+                 carrid_param[[1]][3])
  seats_param<-strsplit(seats_param,",")
  seats_param<-c(as.numeric(seats_param[[1]][1]),as.numeric(seats_param[[1]][2]),
                 as.numeric(seats_param[[1]][3]))
 
+ params<-data.frame(carrid_param,seats_param)
+
  bmp("R_Plot.bmp",type=c("cairo"))
- barplot(seats_param,names.arg=carrid_param)
-#  graph<-data.frame(c(1,2,3),c(4,5,6))
-# plot(graph)
+ dotchart(params$carrid_param,labels=params$seats_param)
  dev.off()
   
  to.read = file("R_Plot.bmp", "rb")
