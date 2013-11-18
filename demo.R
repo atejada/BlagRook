@@ -5,7 +5,7 @@ newapp<-function(env){
  res<-Rook::Response$new()
  
  carrid_param<-c(req$params()$carrid)
- seats_param<-c(req$params()$seats)
+ seats_param<-c(as.numeric(req$params()$seats))
 
   bmp("R_Plot.bmp",type=c("cairo"))
   barplot(seats_param,names.arg=carrid_param)
